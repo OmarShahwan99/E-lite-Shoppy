@@ -1,0 +1,6 @@
+.button::after {
+  border-width: 3px;
+}
+.button:hover::after {
+  transform: scaleX(1.1) scaleY(1.4);
+}
