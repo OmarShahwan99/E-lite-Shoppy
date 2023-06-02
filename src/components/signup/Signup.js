@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { TailSpin } from "react-loader-spinner";
 
 const Signup = () => {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(null);
 
@@ -14,9 +13,6 @@ const Signup = () => {
 
   const dispatch = useDispatch();
 
-  const changeNameHandler = (event) => {
-    setName(event.target.handler);
-  };
   const changeEmailHandler = (event) => {
     setEmail(event.target.value);
   };
@@ -48,7 +44,6 @@ const Signup = () => {
             type="text"
             id="name"
             className="border-gray border-b-2 focus:outline-none focus:border-dark w-full focus:bg-gray py-2 transition duration-300"
-            onChange={changeNameHandler}
           />
         </div>
         <div className="my-4">
