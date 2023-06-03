@@ -1,10 +1,17 @@
-# Getting Started with Create React App
+# E-lite Shoppy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+an e-commerce project with all required functionality, you can create new account and add items to your cart and all your data saved on server.
+i used in this project: user authentication using firebase authentication, cloud firestore to store cart data for each user which has account in website, state management using redux toolkit, redux thunk creator for sending http requests, fake store api, tailwindcss, swiperjs 
+
+to browse: https://e-lite-shoppy.netlify.app/
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+to install all dependecies.
 
 ### `npm start`
 
