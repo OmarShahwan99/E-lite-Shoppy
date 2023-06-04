@@ -11,7 +11,7 @@ const Modal = (props) => {
         portalElement
       )}
       {ReactDOM.createPortal(
-        <div className="bg-light w-fit fixed top-20 left-1/2 -translate-x-1/2 z-50 rounded-md py-8 px-5">
+        <div className="bg-light w-4/5 md:w-[720px] fixed top-20 left-1/2 -translate-x-1/2 z-50 rounded-md py-8 px-5">
           <span
             onClick={props.onClose}
             className="font-bold cursor-pointer absolute top-1 right-3 text-gray"

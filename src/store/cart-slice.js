@@ -51,6 +51,14 @@ const cartSlice = createSlice({
         state.items[itemIdx].quantity--;
       }
     },
+    deleteItemFromCart(state, action) {
+      const itemId = action.payload;
+      const existingItem = state.items.find((item) => item.id === itemId);
+      state.items = state.items.filter((item) => item.id !== itemId);
+      state.totalQuantity = state.totalQuantity - existingItem.quantity;
+      state.totalPrice =
+        state.totalPrice - existingItem.quantity * existingItem.price;
+    },
   },
 });
 
@@ -78,7 +86,7 @@ export const fetchData = () => {
 };
 
 export const sendCartData = (cartData) => {
-  return async (dispatch) => {
+  return async () => {
     const sendRequest = async () => {
       await setDoc(doc(db, "carts", UID), cartData);
     };

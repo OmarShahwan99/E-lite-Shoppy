@@ -21,6 +21,7 @@ module.exports = {
         100: "red",
         200: "#e38787",
       },
+      transparent: "transparent",
     },
     screens: {
       sm: "640px",

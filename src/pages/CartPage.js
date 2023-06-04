@@ -3,6 +3,9 @@ import Layout from "../components/layout/Layout";
 import { cartActions } from "../store/cart-slice";
 import Cart from "../components/cart/Cart";
 
+import cartImg from "../assets/cart.jpg";
+import PageHero from "../components/UI/PageHero";
+
 const CartPage = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const cartItems = useSelector((state) => state.cart.items);
@@ -20,6 +23,7 @@ const CartPage = () => {
 
   return (
     <Layout>
+      <PageHero img={cartImg} marked="Your" title="Cart" />
       <Cart
         onIncrease={addItemHandler}
         onDecrease={removeItemHandler}

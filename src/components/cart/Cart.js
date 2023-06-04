@@ -1,7 +1,5 @@
-import PageHero from "../UI/PageHero";
 import CartItems from "./CartItems";
 import CartSummary from "./CartSummary";
-import cartImg from "../../assets/cart.jpg";
 import { useSelector } from "react-redux";
 import Modal from "../UI/Modal";
 import { useState } from "react";
@@ -22,7 +20,6 @@ const Cart = (props) => {
           Make sure you are logged in to save your data in server.
         </Modal>
       )}
-      <PageHero img={cartImg} marked="Your" title="Cart" />
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 shadow-lg rounded-2xl my-20 md:gap-10 overflow-hidden">
           <CartItems

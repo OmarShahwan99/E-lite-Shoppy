@@ -1,6 +1,16 @@
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
+import { BsTrash } from "react-icons/bs";
+
 const CartItem = (props) => {
+  const dispatch = useDispatch();
+
+  const deleteItemHandler = () => {
+    dispatch(cartActions.deleteItemFromCart(props.item.id));
+  };
+
   return (
-    <li className="py-4 flex flex-wrap justify-between items-center border-gray border-b-2">
+    <li className="py-4 flex flex-wrap justify-between items-center border-gray border-b-2 relative">
       <img alt="" src={props.item.image} className="w-32" />
       <h3 className="w-48 text-secondary-200">{props.item.title}</h3>
       <div>
@@ -26,6 +36,9 @@ const CartItem = (props) => {
           {(props.item.price * props.item.quantity).toFixed(1)}
         </p>
       </div>
+      <button className="absolute top-5 right-5" onClick={deleteItemHandler}>
+        <BsTrash className="text-lg text-secondary-100" />
+      </button>
     </li>
   );
 };

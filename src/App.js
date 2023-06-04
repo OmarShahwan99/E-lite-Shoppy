@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { fetchData, sendCartData } from "./store/cart-slice";
 import MensWear from "./pages/MensWear";
 import WomensWear from "./pages/WomensWear";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 let isInit = true;
 
@@ -32,8 +34,10 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/:productId" element={<ProductDetails />} />
       <Route path="/cart" element={<CartPage />} />
+      <Route path="/about" element={<AboutPage />} />
       <Route path="/mens" element={<MensWear />} />
       <Route path="/womens" element={<WomensWear />} />
+      <Route path="/contact" element={<ContactPage />} />
     </Routes>
   );
 }
