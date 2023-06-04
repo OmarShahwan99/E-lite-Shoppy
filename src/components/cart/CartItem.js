@@ -10,7 +10,7 @@ const CartItem = (props) => {
   };
 
   return (
-    <li className="py-4 flex flex-wrap justify-between items-center border-gray border-b-2 relative">
+    <li className="py-4 flex flex-wrap gap-4 justify-center min-[354px]:justify-between items-center border-gray border-b-2 relative">
       <img alt="" src={props.item.image} className="w-32" />
       <h3 className="w-48 text-secondary-200">{props.item.title}</h3>
       <div>
@@ -36,7 +36,7 @@ const CartItem = (props) => {
           {(props.item.price * props.item.quantity).toFixed(1)}
         </p>
       </div>
-      <button className="absolute top-5 right-5" onClick={deleteItemHandler}>
+      <button className="absolute top-5 right-0" onClick={deleteItemHandler}>
         <BsTrash className="text-lg text-secondary-100" />
       </button>
     </li>

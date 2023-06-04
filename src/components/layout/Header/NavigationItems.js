@@ -55,7 +55,7 @@ const NavigationItem = (props) => {
         </Modal>
       )}
       {!isAuth && (
-        <li className="border-r-2 border-gray text-center py-1">
+        <li className="border-r-2 border-gray text-center py-1 ">
           <a
             onClick={openSigninModal}
             href="#s"

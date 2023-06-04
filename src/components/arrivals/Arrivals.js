@@ -5,6 +5,7 @@ import "./style.css";
 
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import Title from "../UI/Title";
 
 const Arrivals = () => {
   const [products, setProducts] = useState([]);
@@ -47,9 +48,7 @@ const Arrivals = () => {
   return (
     <div className="py-16 ">
       <div className="container">
-        <h1 className="mb-14 text-center uppercase tracking-widest text-5xl font-light">
-          <span className="font-bold">New</span> Arrivals
-        </h1>
+        <Title marked="New" title="Arrivals" className="text-5xl text-center" />
         <ul className="flex flex-wrap gap-5 justify-center mb-12">
           {categorys.map((cat) => (
             <li

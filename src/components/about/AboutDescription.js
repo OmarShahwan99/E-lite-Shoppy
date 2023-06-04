@@ -1,13 +1,13 @@
 import aboutImg from "../../assets/ab_pic.jpg";
 
+import Title from "../UI/Title";
+
 const AboutDescription = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-16">
       <img src={aboutImg} alt="" />
       <div>
-        <h1 className="text-3xl uppercase font-light tracking-widest">
-          <span className="font-bold">About Our Elite </span>Shoppy
-        </h1>
+        <Title marked="About Our Elite" title="Shoppy" className="text-3xl" />
         <p className="mt-10 mb-8 leading-7 text-para">
           Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque
           vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor.

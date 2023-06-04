@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SocialItems from "../layout/HeaderBot/SocialItems";
 
+import Title from "../UI/Title";
+
 const ContactInformation = (props) => {
   return (
     <div>
-      <h2 className="uppercase font-light text-3xl mb-10 tracking-widest">
-        <span className="font-bold">For more </span>information
-      </h2>
+      <Title marked="For More" title="Information" className="text-3xl" />
       <ul className="mb-12">
         {props.items.map((item) => (
           <li className="flex gap-6 mb-8" key={item.title}>
