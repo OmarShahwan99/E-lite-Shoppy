@@ -50,7 +50,7 @@ const Arrivals = () => {
   return (
     <div className="py-16 ">
       <div className="container">
-        <Title marked="New" title="Arrivals" className="text-5xl text-center" />
+        <Title marked="New" title="Arrivals" className="text-3xl sm:text-5xl text-center" />
         <ul className="flex flex-wrap gap-5 justify-center mb-12">
           {categorys.map((cat) => (
             <li

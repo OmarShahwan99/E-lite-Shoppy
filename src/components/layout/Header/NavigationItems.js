@@ -4,12 +4,7 @@ import Signup from "../../signup/Signup";
 import signImg from "../../../assets/log_pic.jpg";
 import Signin from "../../signin/Signin";
 
-import {
-  faLock,
-  faLockOpen,
-  faPhone,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLock, faLockOpen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -49,7 +44,7 @@ const NavigationItem = (props) => {
             {isSignup && <Signup />}
             {isSignin && <Signin />}
             <div className="col-span-1">
-              <img alt="" src={signImg} className="w-20 sm:w-full" />
+              <img alt="" src={signImg} className="hidden sm:block sm:w-full" />
             </div>
           </div>
         </Modal>
@@ -70,7 +65,7 @@ const NavigationItem = (props) => {
         </li>
       )}
       {!isAuth && (
-        <li className="border-r-2 border-gray text-center py-1">
+        <li className="border-r-2 sm:border-none border-gray text-center py-1">
           <a
             onClick={openSignupModal}
             href="#s"
@@ -84,24 +79,6 @@ const NavigationItem = (props) => {
           </a>
         </li>
       )}
-      <li className="border-r-2 border-gray text-center py-1">
-        <a href="#s" className="flex items-center justify-center">
-          <FontAwesomeIcon
-            icon={faPhone}
-            className="w-4 h-4 mr-4 text-primary"
-          />
-          <span className="text-light text-sm">Call: 012345678</span>
-        </a>
-      </li>
-      <li className="border-r-2 border-gray text-center py-1">
-        <a href="#s" className="flex items-center justify-center">
-          <FontAwesomeIcon
-            icon={faEnvelope}
-            className="w-4 h-4 mr-4 text-primary"
-          />
-          <span className="text-light text-sm">Info@example.com</span>
-        </a>
-      </li>
       {isAuth && (
         <li className="border-r-2 border-gray text-center py-1">
           <button onClick={logoutHandler} href="#s" className="inline-block">
@@ -114,7 +91,7 @@ const NavigationItem = (props) => {
         </li>
       )}
       {isAuth && (
-        <li className="border-r-2 border-gray text-center py-1">
+        <li className="border-r-2 sm:border-none border-gray text-center py-1">
           <a href="#s" className="inline-block">
             <User />
           </a>

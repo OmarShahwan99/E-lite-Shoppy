@@ -9,7 +9,7 @@ const Trending = () => {
   return (
     <div className="py-8">
       <div className="container">
-        <Title marked="What's" title="Trending" className="text-5xl text-center" />
+        <Title marked="What's" title="Trending" className="text-3xl sm:text-5xl text-center" />
         <div className="flex flex-col md:flex-row gap-8">
           <div className="basis-2/5">
             <ImageWithEffect title="Sale" subTitle="up to 55%" img={imgOne} />

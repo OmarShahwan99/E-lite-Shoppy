@@ -12,7 +12,7 @@ const CartItem = (props) => {
   return (
     <li className="py-4 flex flex-wrap gap-4 justify-center min-[354px]:justify-between items-center border-gray border-b-2 relative">
       <img alt="" src={props.item.image} className="w-32" />
-      <h3 className="w-48 text-secondary-200">{props.item.title}</h3>
+      <h3 className="w-48 text-center text-secondary-200">{props.item.title}</h3>
       <div>
         <button
           className="w-8 h-8 border-secondary-100 border-2 rounded-full transition duration-300 hover:bg-secondary-100"

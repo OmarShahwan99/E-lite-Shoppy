@@ -98,6 +98,7 @@ export const sendCartData = (cartData) => {
       dispatch(uiActions.getRequest());
       await sendRequest();
     } catch (error) {
+      dispatch(uiActions.getFailed(''));
       console.log(error);
     }
   };
