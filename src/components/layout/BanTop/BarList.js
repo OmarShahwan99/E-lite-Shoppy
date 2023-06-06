@@ -1,10 +1,8 @@
 import MenuItem from "./MenuItem";
 
-
-
-const MenuList = (props) => {
+const BarList = (props) => {
   return (
-    <ul className="hidden md:flex gap-8 items-center">
+    <ul>
       {props.items.map((item) => (
         <MenuItem key={item.title} title={item.title} path={item.path} />
       ))}
@@ -12,4 +10,4 @@ const MenuList = (props) => {
   );
 };
 
-export default MenuList;
+export default BarList;

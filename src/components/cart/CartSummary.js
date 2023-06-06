@@ -22,7 +22,7 @@ const CartSummary = (props) => {
       </div>
       <div className="flex justify-between mt-3">
         <p className="uppercase text-para text-lg font-bold">Total Price</p>
-        <p>$ {props.totalPrice.toFixed(2)}</p>
+        <p className="font-bold text-lg">$ {props.totalPrice.toFixed(2)}</p>
       </div>
       <div className="mt-5 ">
         <Button className="w-full">Checkout</Button>
