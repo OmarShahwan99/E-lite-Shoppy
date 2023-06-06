@@ -9,7 +9,6 @@ const Signin = () => {
   const [password, setPassword] = useState(null);
 
   const { isLoading, error } = useSelector((state) => state.auth);
-  console.log(isLoading);
 
   const dispatch = useDispatch();
 

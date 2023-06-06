@@ -76,7 +76,6 @@ export const signIn = (signinData) => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      console.log(response);
       const responseData = await response.data;
       dispatch(authActions.loadingHandler(false));
       return responseData;

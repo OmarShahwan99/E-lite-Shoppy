@@ -4,8 +4,6 @@ import Button from "../UI/Button";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 
-import { TailSpin } from "react-loader-spinner";
-
 const ProductItem = (props) => {
   const { id, title, price, description, image } = props;
   const dispatch = useDispatch();
@@ -23,29 +21,15 @@ const ProductItem = (props) => {
   };
   return (
     <div className="shadow-lg text-center">
-      {props.isLoading && (
-        <TailSpin
-          height="120"
-          width="120"
-          color="#4fa94d"
-          ariaLabel="tail-spin-loading"
-          radius="1"
-          wrapperStyle={{ justifyContent: "center" }}
-          wrapperClass=""
-          visible={true}
-        />
-      )}
-      {!props.isLoading && (
-        <div className="flex justify-center cursor-pointer relative group">
-          <img alt="" src={props.image} className="w-32 h-48" />
-          <Link
-            to={`/${id}`}
-            className="absolute uppercase text-light bg-dark w-full text-lg py-2 -bottom-1 opacity-0 -translate-y-40 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary transition duration-500 ease-linear"
-          >
-            Quick View
-          </Link>
-        </div>
-      )}
+      <div className="flex justify-center cursor-pointer relative group">
+        <img alt="" src={props.image} className="w-32 h-48" />
+        <Link
+          to={`/${id}`}
+          className="absolute uppercase text-light bg-dark w-full text-lg py-2 -bottom-1 opacity-0 -translate-y-40 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary transition duration-500 ease-linear"
+        >
+          Quick View
+        </Link>
+      </div>
       <div className="my-8 px-6">
         <h4 className="text-secondary-200 font-medium">{props.title}</h4>
         <p className="my-4 font-bold text-xl">${props.price}</p>

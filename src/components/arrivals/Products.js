@@ -11,7 +11,6 @@ const Products = (props) => {
           title={product.title}
           price={product.price}
           description={product.description}
-          isLoading={props.isLoading}
         />
       ))}
     </div>

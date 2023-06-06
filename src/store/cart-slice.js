@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import firebase from "../firebase";
+import { uiActions } from "./ui-slice";
 
 const db = getFirestore(firebase);
 
@@ -69,6 +70,7 @@ export const fetchData = () => {
     const sendRequest = async () => {
       const docRef = doc(db, "carts", UID);
       const docSnap = await getDoc(docRef);
+      dispatch(uiActions.getSuccess());
       if (docSnap.exists()) {
         const responseData = docSnap.data();
         return responseData;
@@ -77,20 +79,23 @@ export const fetchData = () => {
       }
     };
     try {
+      dispatch(uiActions.getRequest());
       const cartData = await sendRequest();
       dispatch(cartActions.replactCart(cartData));
     } catch (error) {
-      console.log(error);
+      dispatch(uiActions.getFailed("There are no items in your cart!"));
     }
   };
 };
 
 export const sendCartData = (cartData) => {
-  return async () => {
+  return async (dispatch) => {
     const sendRequest = async () => {
       await setDoc(doc(db, "carts", UID), cartData);
+      dispatch(uiActions.getSuccess());
     };
     try {
+      dispatch(uiActions.getRequest());
       await sendRequest();
     } catch (error) {
       console.log(error);

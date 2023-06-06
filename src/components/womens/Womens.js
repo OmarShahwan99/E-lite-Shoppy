@@ -10,6 +10,8 @@ import CatDescription from "../UI/CatDescription";
 
 import ProductItem from "../arrivals/ProductItem";
 
+import { TailSpin } from "react-loader-spinner";
+
 const images = [imageOne, imageTwo, imageThree];
 
 const Womens = () => {
@@ -40,18 +42,32 @@ const Womens = () => {
         <CatImagesSlider images={images} />
         <CatDescription marked="Exclusive Women's" title="Collections" />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-14">
-        {products.map((product) => (
-          <ProductItem
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            price={product.price}
-            image={product.image}
-            isLoading={isLoading}
-          />
-        ))}
-      </div>
+      {isLoading && (
+        <TailSpin
+          height="120"
+          width="120"
+          color="#4fa94d"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{ justifyContent: "center" }}
+          wrapperClass=""
+          visible={true}
+        />
+      )}
+      {!isLoading && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-14">
+          {products.map((product) => (
+            <ProductItem
+              key={product.id}
+              id={product.id}
+              title={product.title}
+              price={product.price}
+              image={product.image}
+              isLoading={isLoading}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

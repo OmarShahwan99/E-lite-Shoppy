@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 
 import { authActions } from "../../../store/auth-slice";
-import User from "../BanTop/User";
+import User from "./User";
 
 const NavigationItem = (props) => {
   const [isSignup, setIsSignup] = useState(false);

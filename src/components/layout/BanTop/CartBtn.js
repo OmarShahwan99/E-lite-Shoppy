@@ -8,19 +8,21 @@ import "./animation.css";
 import { useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 
+import { TailSpin } from "react-loader-spinner";
+
 const CartBtn = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const cart = useSelector((state) => state.cart);
+  const { isLoading } = useSelector((state) => state.ui);
   const cartBtnRef = useRef();
   useEffect(() => {
-    if (cart.items.length === 0) {
-      return;
+    if (cart.items.length > 0) {
+      cartBtnRef.current.classList.add("animation");
+      setTimeout(() => {
+        cartBtnRef.current.classList.remove("animation");
+      }, 300);
     }
-    cartBtnRef.current.classList.add("animation");
-    setTimeout(() => {
-      cartBtnRef.current.classList.remove("animation");
-    }, 300);
-  }, [cart]);
+  }, [cart, isLoading]);
 
   return (
     <Link
@@ -29,9 +31,22 @@ const CartBtn = () => {
       ref={cartBtnRef}
     >
       <FontAwesomeIcon icon={faCartShopping} className="text-dark text-xl" />
-      <span className="ml-3 inline-block w-6 h-6 bg-secondary-100 rounded-full">
-        {totalQuantity}
-      </span>
+      {!isLoading && (
+        <span className="ml-3 inline-block w-6 h-6 bg-secondary-100 rounded-full">
+          {totalQuantity}
+        </span>
+      )}
+      {isLoading && (
+        <TailSpin
+          height="20"
+          width="20"
+          color="#4fa94d"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperClass="ml-3"
+          visible={true}
+        />
+      )}
     </Link>
   );
 };

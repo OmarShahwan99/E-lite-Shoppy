@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import Title from "../UI/Title";
 
+import { TailSpin } from "react-loader-spinner";
+
 const Arrivals = () => {
   const [products, setProducts] = useState([]);
   const [categorys, setCategorys] = useState([]);
@@ -62,7 +64,19 @@ const Arrivals = () => {
             </li>
           ))}
         </ul>
-        <Products isLoading={isLoading} products={products} />
+        {!isLoading && <Products isLoading={isLoading} products={products} />}
+        {isLoading && (
+          <TailSpin
+            height="120"
+            width="120"
+            color="#4fa94d"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{ justifyContent: "center" }}
+            wrapperClass=""
+            visible={true}
+          />
+        )}
       </div>
     </div>
   );
