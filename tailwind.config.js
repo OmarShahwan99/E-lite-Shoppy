@@ -10,7 +10,10 @@ module.exports = {
         300: "#fc636b",
       },
       dark: "#312a2a",
-      light: "#fff",
+      light: {
+        100: "#fff",
+        200: "hsl(0deg 0% 97%)",
+      },
       gray: "#ddd",
       para: "#777",
       facebook: "#1773ea",

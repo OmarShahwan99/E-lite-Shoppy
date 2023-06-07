@@ -18,20 +18,21 @@ const Mens = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await axios.get(
-        "https://fakestoreapi.com/products/category/men's clothing"
-      );
-      const responseData = await response.data;
-      setIsLoading(false);
-      setProducts(responseData);
-    };
-    try {
       setIsLoading(true);
-      fetchProducts();
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-    }
+      try {
+        const response = await axios.get(
+          "https://fakestoreapi.com/products/category/men's clothing"
+        );
+        const responseData = await response.data;
+        setIsLoading(false);
+        setIsLoading(false);
+        setProducts(responseData);
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error);
+      }
+    };
+    fetchProducts();
   }, []);
 
   return (

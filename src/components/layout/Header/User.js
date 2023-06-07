@@ -6,7 +6,7 @@ const User = () => {
   const user = useSelector((state) => state.auth.user);
 
   return (
-    <div className="text-light cursor-pointer flex gap-2 items-center">
+    <div className="text-light-100 cursor-pointer flex gap-2 items-center">
       <h1>{user}</h1>
       <FontAwesomeIcon icon={faChevronDown} />
     </div>

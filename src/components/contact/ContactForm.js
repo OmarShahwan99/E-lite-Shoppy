@@ -1,7 +1,7 @@
 const ConactForm = () => {
   return (
     <div className="px-10 py-16 bg-dark">
-      <h2 className="text-3xl uppercase font-light tracking-widest text-light mb-8">
+      <h2 className="text-3xl uppercase font-light tracking-widest text-light-100 mb-8">
         <span className="font-bold">Contact</span> Form
       </h2>
       <form>
@@ -12,7 +12,7 @@ const ConactForm = () => {
           <input
             type="text"
             id="name"
-            className="border-b-2 border-light bg-transparent transition focus:border-primary w-full focus:outline-none duration-300 text-light p-2"
+            className="border-b-2 border-light-100 bg-transparent transition focus:border-primary w-full focus:outline-none duration-300 text-light p-2"
           />
         </div>
         <div className="mb-6">
@@ -22,7 +22,7 @@ const ConactForm = () => {
           <input
             type="email"
             id="email"
-            className="border-b-2 border-light bg-transparent focus:border-primary w-full focus:outline-none transition duration-300 text-light p-2"
+            className="border-b-2 border-light-100 bg-transparent focus:border-primary w-full focus:outline-none transition duration-300 text-light p-2"
           />
         </div>
         <div className="mb-6">
@@ -35,7 +35,7 @@ const ConactForm = () => {
           <input
             type="text"
             id="subject"
-            className="border-b-2 border-light bg-transparent focus:border-primary w-full focus:outline-none transition duration-300 text-light p-2"
+            className="border-b-2 border-light-100 bg-transparent focus:border-primary w-full focus:outline-none transition duration-300 text-light p-2"
           />
         </div>
         <div className="mb-6">
@@ -48,7 +48,7 @@ const ConactForm = () => {
           <textarea
             type="text"
             id="message"
-            className="border-b-2 border-light bg-transparent focus:border-primary focus:outline-none w-full min-h-10 transition duration-300 text-light p-2"
+            className="border-b-2 border-light-100 bg-transparent focus:border-primary focus:outline-none w-full min-h-10 transition duration-300 text-light p-2"
           ></textarea>
         </div>
         <div>

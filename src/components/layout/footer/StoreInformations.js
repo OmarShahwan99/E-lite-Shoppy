@@ -18,7 +18,7 @@ const STORE_INFORMATIONS = [
 const StoreInformations = () => {
   return (
     <div className="col-span-1">
-      <h1 className="font-ligh text-xl text-light uppercase tracking-widest">
+      <h1 className="font-ligh text-xl text-light-100 uppercase tracking-widest">
         <span className="font-bold">Store</span> Informations
       </h1>
       <ul className="mt-3">
@@ -27,9 +27,9 @@ const StoreInformations = () => {
             key={item.title}
             className="mb-1 p-2 bg-dark flex gap-5 items-center"
           >
-            <FontAwesomeIcon className="text-light font-lg" icon={item.icon} />
+            <FontAwesomeIcon className="text-light-100 font-lg" icon={item.icon} />
             <div>
-              <h5 className="font-medium text-light mb-2 tracking-widest ">
+              <h5 className="font-medium text-light-100 mb-2 tracking-widest ">
                 {item.title}
               </h5>
               <p className="text-para">{item.subTitle}</p>

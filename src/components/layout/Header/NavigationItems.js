@@ -60,7 +60,7 @@ const NavigationItem = (props) => {
               icon={faLock}
               className="w-4 h-4 mr-4 text-primary"
             />
-            <span className="text-light text-sm">Sign In</span>
+            <span className="text-light-100 text-sm">Sign In</span>
           </a>
         </li>
       )}
@@ -75,7 +75,7 @@ const NavigationItem = (props) => {
               icon={faLockOpen}
               className="w-4 h-4 mr-4 text-primary"
             />
-            <span className="text-light text-sm">Sign Up</span>
+            <span className="text-light-100 text-sm">Sign Up</span>
           </a>
         </li>
       )}
@@ -86,7 +86,7 @@ const NavigationItem = (props) => {
               icon={faLock}
               className="w-4 h-4 mr-4 text-primary"
             />
-            <span className="text-light text-sm">Logout</span>
+            <span className="text-light-100 text-sm">Logout</span>
           </button>
         </li>
       )}

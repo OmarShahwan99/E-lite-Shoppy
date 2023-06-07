@@ -9,6 +9,8 @@ import MensWear from "./pages/MensWear";
 import WomensWear from "./pages/WomensWear";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import AdminPanel from "./pages/AdminPanel";
+import Products from "./components/panel/products/Products";
 
 let isInit = true;
 
@@ -38,6 +40,9 @@ function App() {
       <Route path="/mens" element={<MensWear />} />
       <Route path="/womens" element={<WomensWear />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/admin-panel/*" element={<AdminPanel />}>
+        <Route path="products" element={<Products />} />
+      </Route>
     </Routes>
   );
 }

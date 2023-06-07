@@ -59,7 +59,7 @@ const Signin = () => {
           <p className="bg-error-200 text-error-100 mb-3 p-2">{error}</p>
         )}
         <div>
-          <button className="px-10 py-2 bg-dark text-light uppercase font-medium text-sm transition duration-300 hover:bg-primary">
+          <button className="px-10 py-2 bg-dark text-light-100 uppercase font-medium text-sm transition duration-300 hover:bg-primary">
             {isLoading && (
               <TailSpin
                 height="20"

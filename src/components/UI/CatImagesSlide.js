@@ -25,7 +25,7 @@ const CatImagesSlider = (props) => {
       <ul className="flex gap-4 absolute bottom-5 left-14">
         {props.images.map((_, imgIdx) => (
           <li
-            className={`w-3 h-3 rounded-full border-light border-2 cursor-pointer ${
+            className={`w-3 h-3 rounded-full border-light-100 border-2 cursor-pointer ${
               index === imgIdx ? activeClass : ""
             }`}
             key={imgIdx}

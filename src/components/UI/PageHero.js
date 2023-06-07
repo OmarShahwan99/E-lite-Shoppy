@@ -6,7 +6,7 @@ const PageHero = (props) => {
       <img src={props.img} alt="" className="h-full w-full object-cover" />
       <Overlay className="absolute z-10">
         <div className="flex justify-center items-center h-full">
-          <h1 className="text-5xl text-light uppercase font-light">
+          <h1 className="text-5xl text-light-100 uppercase font-light">
             <span className="font-bold">{props.marked}</span> {props.title}
           </h1>
         </div>

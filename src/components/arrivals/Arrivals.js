@@ -14,33 +14,33 @@ const Arrivals = () => {
   const [categorys, setCategorys] = useState([]);
   const [selectedCat, setSelectedCat] = useState("men's clothing");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await axios.get("https://fakestoreapi.com/products");
-      const productsData = await response.data;
-      setIsLoading(false);
-      let cats = [];
-      for (let product of productsData) {
-        cats.push(product.category);
-        cats = cats.filter((cat, index, arr) => arr.indexOf(cat) === index);
-      }
-      setCategorys(cats);
-
-      const filterdProducts = productsData.filter(
-        (product) => product.category === selectedCat
-      );
-      setProducts(filterdProducts);
-    };
-    try {
       setIsLoading(true);
-      fetchProducts();
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-    }
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        const productsData = await response.data;
+        setIsLoading(false);
+        let cats = [];
+        for (let product of productsData) {
+          cats.push(product.category);
+          cats = cats.filter((cat, index, arr) => arr.indexOf(cat) === index);
+        }
+        setCategorys(cats);
+        const filterdProducts = productsData.filter(
+          (product) => product.category === selectedCat
+        );
+        setProducts(filterdProducts);
+      } catch (error) {
+        setIsLoading(false);
+        setError(error.message);
+      }
+    };
+    fetchProducts();
   }, [selectedCat, dispatch]);
 
   const catFilterHandler = (cat) => {
@@ -48,9 +48,13 @@ const Arrivals = () => {
   };
 
   return (
-    <div className="py-16 ">
+    <div className="py-16" id="arrivals">
       <div className="container">
-        <Title marked="New" title="Arrivals" className="text-3xl sm:text-5xl text-center" />
+        <Title
+          marked="New"
+          title="Arrivals"
+          className="text-3xl sm:text-5xl text-center"
+        />
         <ul className="flex flex-wrap gap-5 justify-center mb-12">
           {categorys.map((cat) => (
             <li
@@ -77,6 +81,7 @@ const Arrivals = () => {
             visible={true}
           />
         )}
+        {error && <p className="text-center">{error}</p>}
       </div>
     </div>
   );

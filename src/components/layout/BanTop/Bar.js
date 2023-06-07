@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Bar = (props) => {
   return (
     <FontAwesomeIcon
-      className="py-5 block md:hidden text-light text-3xl cursor-pointer"
+      className="py-5 block md:hidden text-light-100 text-3xl cursor-pointer"
       icon={faBars}
       onClick={props.onOpen}
     />
