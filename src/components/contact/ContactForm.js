@@ -48,7 +48,7 @@ const ConactForm = () => {
           <textarea
             type="text"
             id="message"
-            className="border-b-2 border-light-100 bg-transparent focus:border-primary focus:outline-none w-full min-h-10 transition duration-300 text-light p-2"
+            className="border-b-2 border-light-100* bg-transparent focus:border-primary focus:outline-none w-full min-h-10 transition duration-300 text-light p-2"
           ></textarea>
         </div>
         <div>

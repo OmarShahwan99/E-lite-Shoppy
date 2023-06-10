@@ -20,9 +20,9 @@ const ProductItem = (props) => {
     );
   };
   return (
-    <div className="shadow-lg text-center">
+    <div className="shadow-lg text-center flex flex-col justify-between">
       <div className="flex justify-center cursor-pointer relative group">
-        <img alt="" src={props.image} className="w-32 h-48" />
+        <img alt="" src={props.image} className="w-32 h-48 object-contain" />
         <Link
           to={`/${id}`}
           className="absolute uppercase text-light-100 bg-dark w-full text-lg py-2 -bottom-1 opacity-0 -translate-y-40 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary transition duration-500 ease-linear"

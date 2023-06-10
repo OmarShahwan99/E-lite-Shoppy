@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ProductDetails from "./pages/ProductDetails";
 import CartPage from "./pages/CartPage";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,13 +11,30 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import AdminPanel from "./pages/AdminPanel";
 import Products from "./components/panel/products/Products";
+import { fetchProducts, sendProductsData } from "./store/products-slice";
 
 let isInit = true;
 
 function App() {
   const cart = useSelector((state) => state.cart);
+  const products = useSelector((state) => state.products.products);
+  const changed = useSelector((state) => state.products.changed);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isInit) {
+      isInit = false;
+      return;
+    }
+    if (changed) {
+      dispatch(sendProductsData(products));
+    }
+  }, [products, dispatch, changed]);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -43,6 +60,10 @@ function App() {
       <Route path="/admin-panel/*" element={<AdminPanel />}>
         <Route path="products" element={<Products />} />
       </Route>
+      <Route
+        path="/admin-panel"
+        element={<Navigate to="/admin-panel/products" />}
+      />
     </Routes>
   );
 }

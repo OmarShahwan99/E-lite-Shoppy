@@ -5,3 +5,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+.active {
+  background-color: #777;
+  color: #2fdab8;
+}

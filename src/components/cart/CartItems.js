@@ -12,8 +12,6 @@ const CartItems = (props) => {
           <CartItem
             key={item.id}
             item={item}
-            onIncrease={props.onIncrease}
-            onDecrease={props.onDecrease}
           />
         ))}
       </ul>

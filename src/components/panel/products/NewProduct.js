@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 
 const NewProduct = (props) => {
   const [title, setTitle] = useState("");
@@ -8,23 +7,23 @@ const NewProduct = (props) => {
   const [image, setImage] = useState("");
   const [cat, setCat] = useState("");
 
-  const addProductHandler = async (event) => {
+  const addHandler = async (event) => {
     event.preventDefault();
-    const response = await axios.post("https://fakestoreapi.com/products", {
+    const productData = {
       title,
-      price,
-      category: cat,
-      image,
       description,
-    });
-    const responseData = await response.data;
-    console.log(responseData);
+      price: +price,
+      image,
+      category: cat,
+      id: Date.now().toString(36),
+    };
+    props.onAdd(productData);
   };
 
   return (
     <div>
       <h2 className="text-2xl mb-3">Create New Product</h2>
-      <form onSubmit={addProductHandler}>
+      <form onSubmit={addHandler}>
         <div className="mb-4">
           <label className="block text-para font-bold mb-1" htmlFor="title">
             Title
@@ -83,6 +82,9 @@ const NewProduct = (props) => {
             onChange={(e) => setCat(e.target.value)}
             className="w-full border-gray border-2 focus:outline-none rounded-lg px-2 py-1"
           >
+            <option disabled value="">
+              Category
+            </option>
             {props.cats.map((cat) => (
               <option key={cat} value={cat}>
                 {cat}

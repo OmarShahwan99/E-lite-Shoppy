@@ -72,7 +72,10 @@ const Signup = () => {
           {error && (
             <p className="bg-error-200 text-error-100 mb-3 p-2">{error}</p>
           )}
-          <button className="px-10 py-2 bg-dark text-light-100 uppercase font-medium text-sm transition duration-300 hover:bg-primary">
+          <button
+            disabled={isLoading}
+            className="px-10 py-2 bg-dark text-light-100 uppercase font-medium text-sm transition duration-300 hover:bg-primary disabled:bg-gray disabled:cursor-not-allowed"
+          >
             {!isLoading && "Sign up"}
             {isLoading && (
               <TailSpin

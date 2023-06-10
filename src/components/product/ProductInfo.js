@@ -4,7 +4,11 @@ const ProductInfo = (props) => {
   return (
     <div className="container grid grid-cols-3 my-20 gap-5">
       <div className="col-span-3 md:col-span-1 border-gray border-2 p-5 flex justify-center">
-        <img src={props.image} alt="product detail" className="w-40" />
+        <img
+          src={props.image}
+          alt="product detail"
+          className="w-full object-contain"
+        />
       </div>
       <div className="col-span-3 md:col-span-2">
         <h2 className="text-primary text-2xl">{props.title}</h2>

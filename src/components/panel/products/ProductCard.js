@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProductCard = (props) => {
   return (
-    <div className="p-4 border-gray border-2 rounded flex flex-col gap-5 ">
+    <div className="p-4 border-gray border-2 rounded flex flex-col gap-5 justify-between">
       <div className="flex justify-center">
-        <img className="w-40 h-40" alt="" src={props.image} />
+        <img className="w-40 h-40 object-contain" alt="" src={props.image} />
       </div>
       <div>
         <h3 className="text-para mb-2">{props.title}</h3>

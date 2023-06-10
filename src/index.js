@@ -6,13 +6,16 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import store from "./store/index";
 import { Provider } from "react-redux";
+import { ProductsProvider } from "./store/products-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ProductsProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ProductsProvider>
   </Provider>
 );

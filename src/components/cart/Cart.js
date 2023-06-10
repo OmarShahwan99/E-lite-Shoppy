@@ -21,8 +21,6 @@ const Cart = (props) => {
       <CartItems
         cartItems={props.cartItems}
         totalQuantity={props.totalQuantity}
-        onIncrease={props.onIncrease}
-        onDecrease={props.onDecrease}
       />
     );
   }

@@ -5,6 +5,7 @@ const uiSlice = createSlice({
   initialState: {
     isLoading: false,
     error: null,
+    notifications: {},
   },
   reducers: {
     getRequest(state) {
@@ -18,6 +19,13 @@ const uiSlice = createSlice({
     getFailed(state, action) {
       state.isLoading = false;
       state.error = action.payload;
+    },
+    setNotifictations(state, action) {
+      state.notifications = {
+        status: action.payload.status,
+        title: action.payload.title,
+        msg: action.payload.msg,
+      };
     },
   },
 });

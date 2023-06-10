@@ -22,8 +22,9 @@ module.exports = {
       linkedin: "#1b74af",
       error: {
         100: "red",
-        200: "#e38787",
+        200: "#f0adad",
       },
+      success: "#5caf42",
       transparent: "transparent",
     },
     screens: {
