@@ -19,6 +19,7 @@ function App() {
   const cart = useSelector((state) => state.cart);
   const products = useSelector((state) => state.products.products);
   const changed = useSelector((state) => state.products.changed);
+  const isAdminAuth = useSelector((state) => state.auth.isAdminAuth);
 
   const dispatch = useDispatch();
 
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <Routes>
+      <Route path="*" element={<Navigate to="/" />} />
       <Route path="/" element={<Home />} />
       <Route path="/:productId" element={<ProductDetails />} />
       <Route path="/cart" element={<CartPage />} />
@@ -57,9 +59,11 @@ function App() {
       <Route path="/mens" element={<MensWear />} />
       <Route path="/womens" element={<WomensWear />} />
       <Route path="/contact" element={<ContactPage />} />
-      <Route path="/admin-panel/*" element={<AdminPanel />}>
-        <Route path="products" element={<Products />} />
-      </Route>
+      {isAdminAuth && (
+        <Route path="/admin-panel/*" element={<AdminPanel />}>
+          <Route path="products" element={<Products />} />
+        </Route>
+      )}
       <Route
         path="/admin-panel"
         element={<Navigate to="/admin-panel/products" />}

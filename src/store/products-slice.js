@@ -56,7 +56,7 @@ export const sendProductsData = (products) => {
         uiActions.setNotifictations({
           status: "success",
           title: "Done!",
-          msg: "Data has been sent to succesfully!",
+          msg: "Data has been sent succesfully!",
         })
       );
     };

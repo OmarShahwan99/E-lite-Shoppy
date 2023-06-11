@@ -9,6 +9,7 @@ const authSlice = createSlice({
     isAuthenticated: !!localStorage.getItem("token"),
     isLoading: false,
     error: null,
+    isAdminAuth: localStorage.getItem("user") === "admin@gmail.com",
   },
   reducers: {
     addUserInfo(state, action) {
