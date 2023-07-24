@@ -4,7 +4,7 @@ import ProductDetails from "./pages/ProductDetails";
 import CartPage from "./pages/CartPage";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchData, sendCartData } from "./store/cart-slice";
+import { fetchCartData, sendCartData } from "./store/cart-slice";
 import MensWear from "./pages/MensWear";
 import WomensWear from "./pages/WomensWear";
 import AboutPage from "./pages/AboutPage";
@@ -13,7 +13,8 @@ import AdminPanel from "./pages/AdminPanel";
 import Products from "./components/panel/products/Products";
 import { fetchProducts, sendProductsData } from "./store/products-slice";
 
-let isInit = true;
+let cartIsInit = true;
+let productsIsInit = true;
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -28,8 +29,8 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (isInit) {
-      isInit = false;
+    if (productsIsInit) {
+      productsIsInit = false;
       return;
     }
     if (changed) {
@@ -38,12 +39,12 @@ function App() {
   }, [products, dispatch, changed]);
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchCartData());
   }, [dispatch]);
 
   useEffect(() => {
-    if (isInit) {
-      isInit = false;
+    if (cartIsInit) {
+      cartIsInit = false;
       return;
     }
     dispatch(sendCartData(cart));
@@ -53,7 +54,7 @@ function App() {
     <Routes>
       <Route path="*" element={<Navigate to="/" />} />
       <Route path="/" element={<Home />} />
-      <Route path="/:productId" element={<ProductDetails />} />
+      <Route path="/products/:productId" element={<ProductDetails />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/mens" element={<MensWear />} />

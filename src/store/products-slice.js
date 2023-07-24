@@ -18,6 +18,14 @@ const productsSlice = createSlice({
       state.products = state.products.filter((product) => product.id !== id);
       state.changed = true;
     },
+    editProduct(state, action) {
+      const editedProudct = action.payload;
+      console.log(editedProudct);
+      state.products = state.products.map((product) =>
+        product.id === editedProudct.id ? (product = editedProudct) : product
+      );
+      state.changed = true;
+    },
     replaceProduct(state, action) {
       state.products = action.payload;
     },

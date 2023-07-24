@@ -13,7 +13,7 @@ import { uiActions } from "../../../store/ui-slice";
 
 const Products = () => {
   const [selectedCat, setSelectedCat] = useState("men's clothing");
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(null);
 
   const products = useSelector((state) => state.products.products);
   const nots = useSelector((state) => state.ui.notifications);
@@ -30,14 +30,6 @@ const Products = () => {
     dispatch(productsActions.addProduct(product));
   };
 
-  const deleteProductHandler = (productId) => {
-    dispatch(productsActions.deleteProduct(productId));
-  };
-
-  const filteredProducts = products.filter(
-    (product) => product.category === selectedCat
-  );
-
   let categories = [];
   for (let product of products) {
     categories.push(product.category);
@@ -45,6 +37,19 @@ const Products = () => {
   categories = categories.filter(
     (cat, index, arr) => arr.indexOf(cat) === index
   );
+
+  const filteredProducts = products.filter(
+    (product) => product.category === selectedCat
+  );
+
+  const deleteProductHandler = (productId) => {
+    dispatch(productsActions.deleteProduct(productId));
+  };
+
+  const editProductHandler = (editedProduct) => {
+    console.log(editedProduct);
+    dispatch(productsActions.editProduct(editedProduct));
+  };
 
   return (
     <div className="pb-8 pt-14">
@@ -63,7 +68,6 @@ const Products = () => {
           cats={categories}
           onSelectCat={(cat) => setSelectedCat(cat)}
         />
-
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
           {filteredProducts.map((product) => (
             <ProductCard
@@ -74,6 +78,8 @@ const Products = () => {
               price={product.price}
               description={product.description}
               onDelete={deleteProductHandler}
+              onEdit={editProductHandler}
+              cat={product.category}
             />
           ))}
         </div>

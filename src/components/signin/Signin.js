@@ -18,7 +18,7 @@ const Signin = () => {
   const changePasswordHandler = (event) => {
     setPassword(event.target.value);
   };
-  const loginHandler = (event) => {
+  const loginHandler = async (event) => {
     event.preventDefault();
     const loginData = {
       email: email,

@@ -21,7 +21,11 @@ const CatImagesSlider = (props) => {
 
   return (
     <div className="relative col-span-2">
-      <img className="h-full object-cover" src={images[index]} alt="" />
+      <img
+        className="h-full object-cover w-full transition duration-300 "
+        src={images[index]}
+        alt=""
+      />
       <ul className="flex gap-4 absolute bottom-5 left-14">
         {props.images.map((_, imgIdx) => (
           <li

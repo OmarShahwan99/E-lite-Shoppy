@@ -1,32 +1,30 @@
 import { useState } from "react";
 
-const NewProduct = (props) => {
+const EditProduct = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
-  const [cat, setCat] = useState("");
 
-  const addHandler = (event) => {
+  const editHandler = (event) => {
     event.preventDefault();
-    const productData = {
+    props.onEdit({
       title,
       description,
-      price: +price,
+      price,
       image,
-      category: cat,
-      id: Date.now().toString(36),
-    };
-    props.onAdd(productData);
+      id: props.id,
+      category: props.cat,
+    });
   };
 
   return (
     <div>
-      <h2 className="text-2xl mb-3">Create New Product</h2>
-      <form onSubmit={addHandler}>
+      <h2 className="text-2xl mb-3">Edit Product Number {props.id}</h2>
+      <form onSubmit={editHandler}>
         <div className="mb-4">
           <label className="block text-para font-bold mb-1" htmlFor="title">
-            Title
+            New Title
           </label>
           <input
             className="w-full border-gray border-2 focus:outline-none rounded-lg px-2 py-1"
@@ -41,7 +39,7 @@ const NewProduct = (props) => {
             className="block text-para font-bold mb-1"
             htmlFor="description"
           >
-            Description
+            New Description
           </label>
           <input
             className="w-full border-gray border-2 focus:outline-none rounded-lg px-2 py-1"
@@ -53,7 +51,7 @@ const NewProduct = (props) => {
         </div>
         <div className="mb-4">
           <label className="block text-para font-bold mb-1" htmlFor="price">
-            Price
+            New Price
           </label>
           <input
             className="w-full border-gray border-2 focus:outline-none rounded-lg px-2 py-1"
@@ -65,7 +63,7 @@ const NewProduct = (props) => {
         </div>
         <div className="mb-4">
           <label className="block text-para font-bold mb-1" htmlFor="image">
-            Image
+            New Image
           </label>
           <input
             className="w-full border-gray border-2 focus:outline-none rounded-lg px-2 py-1"
@@ -75,26 +73,10 @@ const NewProduct = (props) => {
             onChange={(e) => setImage(e.target.value)}
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-para font-bold mb-1">Category</label>
-          <select
-            value={cat}
-            onChange={(e) => setCat(e.target.value)}
-            className="w-full border-gray border-2 focus:outline-none rounded-lg px-2 py-1"
-          >
-            <option disabled value="">
-              Category
-            </option>
-            {props.cats.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
-        </div>
+
         <div>
           <button className="px-2 py-1 bg-primary text-light-100 font-bold mt-4 rounded">
-            Add Product
+            Edit
           </button>
         </div>
       </form>
@@ -102,4 +84,4 @@ const NewProduct = (props) => {
   );
 };
 
-export default NewProduct;
+export default EditProduct;

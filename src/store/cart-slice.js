@@ -65,7 +65,7 @@ const cartSlice = createSlice({
 
 export const cartActions = cartSlice.actions;
 
-export const fetchData = () => {
+export const fetchCartData = () => {
   return async (dispatch) => {
     const sendRequest = async () => {
       const docRef = doc(db, "carts", UID);
@@ -98,7 +98,7 @@ export const sendCartData = (cartData) => {
       dispatch(uiActions.getRequest());
       await sendRequest();
     } catch (error) {
-      dispatch(uiActions.getFailed(''));
+      dispatch(uiActions.getFailed(""));
       console.log(error);
     }
   };
